@@ -1,0 +1,16 @@
+name: sync-fork
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - name: sync template
+        run: gh repo sync vietchinh/ulightblue -b template --source ublue-os/startingpoint
+        env:
+          GITHUB_TOKEN: ${{ secrets.FORK_SYNC_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          BRANCH_NAME: template
