@@ -46,6 +46,7 @@ modules:
       - apr-util
       - apr-util-openssl
       - apr-util-bdb
+      - ffmpeg-free
       - ffmpeg
       - ffmpeg-libs
       - libavdevice
