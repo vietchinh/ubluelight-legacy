@@ -54,10 +54,6 @@ modules:
       - libva-intel-driver
       - nvtop
       - podman-compose
-      - tmux
-      - vim
-      - wireguard-tools
-      - fzf
 
   - type: yafti # if included, yafti and it's dependencies (pip & libadwaita)
     #  will be installed and set up
