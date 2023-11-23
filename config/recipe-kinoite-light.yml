@@ -46,7 +46,6 @@ modules:
       - apr-util
       - ffmpeg
       - ffmpeg-libs
-      - ffmpegthumbnailer
       - fzf
       - grub2-tools-extra
       - intel-media-driver
