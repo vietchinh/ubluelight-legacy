@@ -56,6 +56,9 @@ modules:
       - podman-compose
       - tmux
       - wireguard-tools
+      - fzf
+      - icoutils
+      - kcron
 
   - type: yafti # if included, yafti and it's dependencies (pip & libadwaita)
     #  will be installed and set up
