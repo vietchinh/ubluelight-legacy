@@ -17,9 +17,6 @@ modules:
                   # added into /usr/etc/ as that is the proper "distro" config directory on ostree
                   # read more in the files module's README
   - type: rpm-ostree
-    install:
-      - podman
-      - htop
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -44,8 +41,11 @@ modules:
       - qt5-qtbase-mysql
       - apr
       - apr-util
+      - apr-util-openssl
+      - apr-util-bdb
       - ffmpeg
       - ffmpeg-libs
+      - libavdevice
       - fzf
       - grub2-tools-extra
       - intel-media-driver
