@@ -48,17 +48,7 @@ modules:
       - apr-util-bdb
       - ffmpeg
       - ffmpeg-libs
-      - fzf
-      - grub2-tools-extra
-      - intel-media-driver
-      - libva-intel-driver
-      - nvtop
-      - podman-compose
-      - tmux
-      - vim
-      - icoutils
-      - kcron
-      - wireguard-tools
+      - libavdevice
 
   - type: yafti # if included, yafti and it's dependencies (pip & libadwaita)
     #  will be installed and set up
