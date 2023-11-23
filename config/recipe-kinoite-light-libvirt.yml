@@ -1,0 +1,26 @@
+# image will be published to ghcr.io/<user>/<name>
+name: ublue-kinoite-with-libvirt
+# description will be included in the image's metadata
+description: Ublue kinoite with libvirt qemu kvm virtualization
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/kinoite-main
+image-version: 39 # latest is also supported if you want new updates ASAP
+
+# list of modules, executed in order
+# you can include multiple instances of the same module
+modules:
+
+  - from-file: recipe-kinoite-light.yml
+
+  - type: rpm-ostree
+    install:
+      - qemu-kvm
+      - libvirt
+      - virt-manager
+      - hwloc-gui
+
+  - type: systemd
+    system:
+      enabled:
+        - libvirtd.service

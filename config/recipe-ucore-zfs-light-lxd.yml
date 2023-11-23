@@ -1,0 +1,18 @@
+# image will be published to ghcr.io/<user>/<name>
+name: ucore-zfs-rpm-podman-lxd
+# description will be included in the image's metadata
+description: Ucore minimal with zfs and lxd
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/ucore
+image-version: stable-zfs # latest is also supported if you want new updates ASAP
+
+# list of modules, executed in order
+# you can include multiple instances of the same module
+modules:
+
+  - from-file: recipe-ucore-zfs-light.yml
+
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/ganto/lxc4/repo/fedora-%OS_VERSION%/ganto-lxc4-fedora-%OS_VERSION%.repo
