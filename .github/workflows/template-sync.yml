@@ -23,7 +23,7 @@ jobs:
       - name: Check diff between template/template and template
         run: echo "DIFF_COUNT=`git diff --numstat --minimal template/template..template | cut -c1-1`" >> $GITHUB_ENV
       - name: Git merge changes from template to ubluelight/template
-        if: ${{ env.DIFF_COUNT != '0' }}
+        if: ${{ env.DIFF_COUNT != '' }}
         run: git merge template/template --allow-unrelated-histories && git push origin template
 #      - name: Checkout live
 #        if: ${{ env.DIFF_COUNT != '0' }}
