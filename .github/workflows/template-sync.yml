@@ -26,6 +26,8 @@ jobs:
         if: ${{ env.DIFF_COUNT != '' }}
         run: git merge template/template --allow-unrelated-histories && git push origin template
       - name: Checkout live
+        if: ${{ env.DIFF_COUNT != '' }}
         run: git checkout live
       - name: Git rebase template in live
+        if: ${{ env.DIFF_COUNT != '' }}
         run: git rebase --onto origin/template --root live && git push origin live -f
