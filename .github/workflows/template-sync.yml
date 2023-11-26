@@ -30,6 +30,6 @@ jobs:
         with:
           ref: 'live'
       - name: Fetch live
-        run: git fetch live
+        run: git fetch --all
       - name: Git rebase template in live
         run: git rebase --reapply-cherry-picks --no-rebase-merges --onto origin/template --root live    && git push origin live -f
