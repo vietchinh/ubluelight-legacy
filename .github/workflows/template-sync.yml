@@ -29,5 +29,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: 'live'
+      - name: Fetch live
+        run: git fetch live
       - name: Git rebase template in live
         run: git rebase --reapply-cherry-picks --no-rebase-merges --onto origin/template --root live    && git push origin live -f
