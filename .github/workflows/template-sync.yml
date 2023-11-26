@@ -30,4 +30,4 @@ jobs:
         with:
           ref: 'live'
       - name: Git rebase template in live
-        run: git rebase origin/template  && git push origin live -f
+        run: git rebase origin/template live  && git push origin live -f
