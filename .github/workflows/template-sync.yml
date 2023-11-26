@@ -8,9 +8,28 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
-      - name: sync template
-        run: gh repo sync vietchinh/ulightblue -b template --source ublue-os/startingpoint
-        env:
-          GITHUB_TOKEN: ${{ secrets.FORK_SYNC_TOKEN }}
-          REPOSITORY: ${{ github.repository }}
-          BRANCH_NAME: template
+      - name: Checkout template
+        uses: actions/checkout@v4
+        with:
+          ref: 'template'
+      - name: git setup
+        run: |
+          git config user.name "Vietchinh GitHub Actions Bot"
+          git config user.email "1348151+vietchinh@users.noreply.github.com"
+      - name: Add ublue-os startingpoint remote
+        run: git remote add template https://github.com/ublue-os/startingpoint
+      - name: Fetch all
+        run: git fetch --all
+      - name: Check diff between template/template and template
+        run: echo "DIFF_COUNT=`git diff --numstat --minimal template/template..template | cut -c1-1`" >> $GITHUB_ENV
+      - name: Git merge changes from template to ubluelight/template
+        if: ${{ env.DIFF_COUNT != '0' }}
+        run: git merge template/template --allow-unrelated-histories && git push origin template
+#      - name: Checkout live
+#        if: ${{ env.DIFF_COUNT != '0' }}
+#        uses: actions/checkout@v4
+#        with:
+#          ref: 'live'
+#      - name: Git merge template in live
+#        if: ${{ env.DIFF_COUNT != '0' }}
+#        run: git merge origin/template  && git push origin live
