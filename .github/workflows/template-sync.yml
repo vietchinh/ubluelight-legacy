@@ -26,10 +26,6 @@ jobs:
         if: ${{ env.DIFF_COUNT != '' }}
         run: git merge template/template --allow-unrelated-histories && git push origin template
       - name: Checkout live
-        uses: actions/checkout@v4
-        with:
-          ref: 'live'
-      - name: Fetch live
-        run: git fetch --all
+        run: git checkout live
       - name: Git rebase template in live
         run: git rebase --reapply-cherry-picks --no-rebase-merges --onto origin/template --root live    && git push origin live -f
