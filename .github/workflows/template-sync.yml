@@ -19,7 +19,7 @@ jobs:
       - name: Fetch all
         run: git fetch --all
       - name: Checkout template
-        run: git checkout origin/template
+        run: git checkout template
       - name: Check diff between template/template and template
         run: echo "DIFF_COUNT=`git diff --numstat --minimal template/template..template | cut -c1-1`" >> $GITHUB_ENV
       - name: Git merge changes from template to ubluelight/template
