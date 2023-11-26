@@ -28,7 +28,6 @@ modules:
       - kmousetool
       - krfb-libs
       - krfb
-      - kmag
       - mariadb-backup
       - mariadb-cracklib-password-check
       - mariadb-common
