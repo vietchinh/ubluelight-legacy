@@ -26,4 +26,4 @@ jobs:
       - name: Checkout live
         run: git checkout live
       - name: Git rebase template in live
-        run: git rebase --reapply-cherry-picks --no-rebase-merges --onto origin/template --root live    && git push origin live -f
+        run: git rebase --onto origin/template --root live && git push origin live -f
