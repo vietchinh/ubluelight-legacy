@@ -19,8 +19,6 @@ modules:
           # read more in the files module's README
 
   - type: rpm-ostree
-    install:
-      - flatpak
     remove:
       - moby-engine
       - toolbox
