@@ -48,6 +48,9 @@ modules:
       - ucore-kde.sh
 
   - type: systemd
+    user:
+      enabled:
+        - initialize-distrobox-fedora-kde.service
     system:
       disabled:
         - rpm-ostreed-upgrade-reboot.timer
