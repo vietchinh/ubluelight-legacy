@@ -39,12 +39,13 @@ jobs:
         # Add recipes for all the images you want to build here.
         # Don't add module configuration files, you will get errors.
         recipe:
-          - recipe-ucore-zfs-light.yml
-          - recipe-ucore-zfs-light-lxd.yml
-          - recipe-kinoite-light.yml
-          - recipe-kinoite-light-bore-eevdf.yml
-          - recipe-kinoite-light-libvirt.yml
-          - recipe-kinoite-light-libvirt-bore-eevdf.yml
+          - recipe-ucore-zfs-light-kde.yml
+          #- recipe-ucore-zfs-light.yml
+          #- recipe-ucore-zfs-light-lxd.yml
+          #- recipe-kinoite-light.yml
+          #- recipe-kinoite-light-bore-eevdf.yml
+          #- recipe-kinoite-light-libvirt.yml
+          #- recipe-kinoite-light-libvirt-bore-eevdf.yml
 # !!!
 
     steps:
