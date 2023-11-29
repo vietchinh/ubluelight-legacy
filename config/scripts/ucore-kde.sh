@@ -8,7 +8,7 @@ set -oue pipefail
 # Your code goes here.
 CONTAINER_NAME="fedora-kde"
 
-distrobox create --name $CONTAINER_NAME --image registry.fedoraproject.org/fedora:latest
+distrobox create --yes --name $CONTAINER_NAME --image registry.fedoraproject.org/fedora:latest
 distrobox enter $CONTAINER_NAME
 
 sudo umount /var/lib/flatpak
