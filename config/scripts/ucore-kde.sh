@@ -6,9 +6,6 @@
 set -oue pipefail
 
 # Your code goes here.
-mkdir -p /usr/etc/profile.d/
-echo "chown -f -R $USER:$USER /tmp/.X11-unix" >> /usr/etc/profile.d/fix_tmp.sh
-
 mkdir -p /usr/etc/distrobox-fedora-kde/
 
 cat > /usr/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh << EOF
@@ -34,7 +31,11 @@ flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/fl
 
 exit
 
+sudo mkdir -p /etc/profile.d/
+sudo echo "chown -f -R $USER:$USER /tmp/.X11-unix" >> /etc/profile.d/fix_tmp.sh
+
 distrobox-export --bin /var/lib/flatpak/ --export-path /var/lib/flatpak/
+
 systemctl --user enable --now fedora-kde-plasma-autostart.service
 systemctl --user disable initialize-distrobox-fedora-kde.service
 EOF
