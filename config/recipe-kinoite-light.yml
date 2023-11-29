@@ -49,7 +49,6 @@ modules:
       - intel-media-driver
       - libva-intel-driver
       - nvtop
-      - podman-compose
       - tmux
       - wireguard-tools
       - fzf
