@@ -19,6 +19,9 @@ Type=oneshot
 StandardOutput=journal+console
 RemainAfterExit=no
 ExecStart=/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
+
+[Install]
+WantedBy=multi-user.target
 EOF
 
 cat > /usr/lib/systemd/user/fedora-kde-plasma-autostart.service << EOF
@@ -29,4 +32,7 @@ ConditionPathExists=/run/ostree-booted
 [Service]
 Type=simple
 ExecStart=/usr/local/bin/distrobox-enter -- /usr/libexec/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
+
+[Install]
+WantedBy=multi-user.target
 EOF
