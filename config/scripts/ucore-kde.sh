@@ -7,6 +7,7 @@ set -oue pipefail
 
 # Your code goes here.
 DBX_CONTAINER_HOME_PREFIX=/usr/etc/distrobox-fedora-kde
+DBX_CONTAINER_CUSTOM_HOME=/usr/etc/distrobox-fedora-kde
 
 #rpm -ivh /tmp/ublue-os-signing.noarch.rpm
 chmod +x "$DBX_CONTAINER_HOME_PREFIX/initialize_distrobox_fedora_kde.sh"
