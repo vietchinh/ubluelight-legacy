@@ -1,0 +1,3 @@
+if [ -f /usr/libexec/kactivitymanagerd ]; then
+  /usr/libexec/kactivitymanagerd & disown
+fi
