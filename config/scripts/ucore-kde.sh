@@ -14,10 +14,10 @@ cat > /usr/lib/systemd/system/initialize-distrobox-fedora-kde.service << EOF
 Description=Autostart kde plasma
 ConditionPathExists=/run/ostree-booted
 ConditionFileIsExecutable=/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
-User=1000
-Group=1000
 
 [Service]
+User=1000
+Group=1000
 Type=oneshot
 StandardOutput=journal+console
 RemainAfterExit=no
