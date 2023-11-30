@@ -18,26 +18,26 @@ modules:
           # added into /usr/etc/ as that is the proper "distro" config directory on ostree
           # read more in the files module's README
 
-#  - type: rpm-ostree
-#    remove:
-#      - moby-engine
-#      - toolbox
-#      - mbuffer
-#      - perl-Capture-Tiny
-#      - perl-Config-IniFiles
-#      - podman-compose
-#      - pv
-#      - qemu-guest-agent
-#      - tailscale
-#      - tmux
-#      - dbus-tools
-#      - open-vm-tools
-#      - iwlegacy-firmware
-#      - iwlwifi-dvm-firmware
-#      - iwlwifi-mvm-firmware
-#      - wireguard-tools
-#      - xdg-dbus-proxy
-#      - xdg-user-dirs
+  - type: rpm-ostree
+    remove:
+      - moby-engine
+      - toolbox
+      - mbuffer
+      - perl-Capture-Tiny
+      - perl-Config-IniFiles
+      - podman-compose
+      - pv
+      - qemu-guest-agent
+      - tailscale
+      - tmux
+      - dbus-tools
+      - open-vm-tools
+      - iwlegacy-firmware
+      - iwlwifi-dvm-firmware
+      - iwlwifi-mvm-firmware
+      - wireguard-tools
+      - xdg-dbus-proxy
+      - xdg-user-dirs
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
