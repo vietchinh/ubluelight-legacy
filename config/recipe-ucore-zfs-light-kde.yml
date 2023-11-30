@@ -53,4 +53,4 @@ modules:
         - initialize-distrobox-fedora-kde.service
     system:
       disabled:
-        - rpm-ostreed-upgrade-reboot.timer
+        - rpm-ostreed-automatic.timer
