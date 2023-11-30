@@ -19,8 +19,6 @@ modules:
           # read more in the files module's README
 
   - type: rpm-ostree
-    install:
-      - sddm
     remove:
       - moby-engine
       - toolbox
@@ -53,8 +51,6 @@ modules:
 
   - type: systemd
     system:
-      enabled:
-        - sddm.service
         #- initialize-distrobox-fedora-kde.service
       disabled:
         - rpm-ostreed-automatic.timer
