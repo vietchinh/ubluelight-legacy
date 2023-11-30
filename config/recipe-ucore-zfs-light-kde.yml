@@ -19,6 +19,11 @@ modules:
           # read more in the files module's README
 
   - type: rpm-ostree
+    install:
+      - sddm
+      - sddm-breeze
+      - sddm-kcm
+      - kwin
     remove:
       - moby-engine
       - toolbox
