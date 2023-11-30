@@ -19,6 +19,8 @@ modules:
           # read more in the files module's README
 
   - type: rpm-ostree
+    install:
+      - sddm
     remove:
       - moby-engine
       - toolbox
