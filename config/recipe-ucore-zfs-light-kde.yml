@@ -21,8 +21,6 @@ modules:
   - type: rpm-ostree
     install:
       - sddm
-      - sddm-breeze
-      - sddm-kcm
       - kwin
     remove:
       - moby-engine
