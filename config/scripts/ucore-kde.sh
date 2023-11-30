@@ -6,6 +6,7 @@
 set -oue pipefail
 
 # Your code goes here.
+rpm -ivh /tmp/ublue-os-signing.noarch.rpm
 chmod +x /usr/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
 
 cat > /usr/lib/systemd/system/initialize-distrobox-fedora-kde.service << EOF

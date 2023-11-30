@@ -45,9 +45,9 @@ modules:
 
   - type: script
     scripts:
+      - ucore-kde.sh
       # this sets up the proper policy & signing files for signed images to work
       - signing.sh
-      - ucore-kde.sh
 
   - type: systemd
     system:
