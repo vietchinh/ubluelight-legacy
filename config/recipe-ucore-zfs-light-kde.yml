@@ -48,9 +48,8 @@ modules:
       - ucore-kde.sh
 
   - type: systemd
-    user:
+    system:
       enabled:
         - initialize-distrobox-fedora-kde.service
-    system:
       disabled:
         - rpm-ostreed-automatic.timer

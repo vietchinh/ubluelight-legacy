@@ -8,11 +8,13 @@ set -oue pipefail
 # Your code goes here.
 chmod +x /usr/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
 
-cat > /usr/lib/systemd/user/initialize-distrobox-fedora-kde.service << EOF
+cat > /usr/lib/systemd/system/initialize-distrobox-fedora-kde.service << EOF
 [Unit]
 Description=Autostart kde plasma
 ConditionPathExists=/run/ostree-booted
 ConditionFileIsExecutable=/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
+User=1000
+Group=1000
 
 [Service]
 Type=oneshot
