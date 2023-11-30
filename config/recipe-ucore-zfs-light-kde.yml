@@ -21,7 +21,6 @@ modules:
   - type: rpm-ostree
     install:
       - sddm
-      - kwin
     remove:
       - moby-engine
       - toolbox
