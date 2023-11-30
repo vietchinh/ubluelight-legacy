@@ -6,13 +6,13 @@
 set -oue pipefail
 
 # Your code goes here.
-chmod +x /usr/share/ublue-os/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
+chmod +x /usr/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
 
 cat > /usr/lib/systemd/system/initialize-distrobox-fedora-kde.service << EOF
 [Unit]
 Description=Autostart kde plasma
 ConditionPathExists=/run/ostree-booted
-ConditionFileIsExecutable=/usr/share/ublue-os/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
+ConditionFileIsExecutable=/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
 User=1000
 Group=1000
 
@@ -20,7 +20,7 @@ Group=1000
 Type=oneshot
 StandardOutput=journal+console
 RemainAfterExit=no
-ExecStart=/usr/share/ublue-os/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
+ExecStart=/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
 
 [Install]
 WantedBy=multi-user.target
