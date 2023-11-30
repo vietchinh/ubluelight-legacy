@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=/usr/local/bin/distrobox-enter fedora-kde -- /usr/libexec/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
+Exec=/usr/bin/distrobox-enter --root fedora-kde -- /usr/libexec/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
 DesktopNames=KDE
 Name=Plasma on Wayland (Distrobox)
 X-KDE-PluginInfo-Version=5.23.3
