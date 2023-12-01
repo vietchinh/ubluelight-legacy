@@ -19,5 +19,4 @@ rpm-ostree install sddm sddm-breeze sddm-kcm
 
 #distrobox-export --bin /var/lib/flatpak/ --export-path /var/lib/flatpak/
 
-systemctl disable initialize-distrobox-fedora-kde.service
 systemctl enable --now sddm.service
