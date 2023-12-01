@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+mkdir -p ~/.local/bin
+
 distrobox assemble create --file /usr/etc/distrobox-fedora-kde/fedora-kde.ini
 
 distrobox enter fedora-kde -- sudo ln -s /run/host/run/systemd/system /run/systemd
