@@ -20,3 +20,5 @@ echo "chown -f -R $USER:$USER /tmp/.X11-unix" | sudo tee -a /etc/profile.d/fix_t
 distrobox-export --bin /var/lib/flatpak/ --export-path /var/lib/flatpak/
 
 sudo systemctl enable --now sddm.service
+
+rm -- "$0"
