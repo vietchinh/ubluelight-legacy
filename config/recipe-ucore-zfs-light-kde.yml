@@ -38,12 +38,6 @@ modules:
       - iwlwifi-mvm-firmware
       - wireguard-tools
 
-  - type: rpm-ostree
-    install:
-      - sddm
-      - sddm-breeze
-      - sddm-kcm
-
   - type: bling # configure what to pull in from ublue-os/bling
     install:
       - ublue-update
