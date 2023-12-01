@@ -2,7 +2,7 @@
 
 distrobox assemble create --file /usr/etc/distrobox-fedora-kde/fedora-kde.ini
 
-distrobox enter --root fedora-kde
+distrobox enter fedora-kde
 
 sudo ln -s /run/host/run/systemd/system /run/systemd
 sudo mkdir /run/dbus
@@ -14,9 +14,9 @@ exit
 
 rpm-ostree install sddm sddm-breeze sddm-kcm
 
-#sudo mkdir -p /etc/profile.d/
-#echo "chown -f -R $USER:$USER /tmp/.X11-unix" | sudo tee -a /etc/profile.d/fix_tmp.sh
+sudo mkdir -p /etc/profile.d/
+echo "chown -f -R $USER:$USER /tmp/.X11-unix" | sudo tee -a /etc/profile.d/fix_tmp.sh
 
-#distrobox-export --bin /var/lib/flatpak/ --export-path /var/lib/flatpak/
+distrobox-export --bin /var/lib/flatpak/ --export-path /var/lib/flatpak/
 
-systemctl enable --now sddm.service
+sudo systemctl enable --now sddm.service
