@@ -18,8 +18,6 @@ ConditionPathExists=/run/ostree-booted
 ConditionFileIsExecutable=/etc/distrobox-fedora-kde/initialize_distrobox_fedora_kde.sh
 
 [Service]
-User=1000
-Group=1000
 Type=oneshot
 StandardOutput=journal+console
 RemainAfterExit=no
@@ -36,7 +34,7 @@ ConditionPathExists=/run/ostree-booted
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/distrobox-enter -- /usr/libexec/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
+ExecStart=/usr/bin/distrobox-enter --root fedora-kde -- /usr/libexec/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland
 
 [Install]
 WantedBy=multi-user.target
