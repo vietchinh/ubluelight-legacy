@@ -78,4 +78,4 @@ echo "chown -f -R $USER:$USER /tmp/.X11-unix" | sudo tee -a /etc/profile.d/fix_t
 
 sudo systemctl enable --now sddm.service
 
-rm -f "/etc/profile.d/initialize_distrobox_fedora_kde.sh"
+sudo rm -f "/etc/profile.d/initialize_distrobox_fedora_kde.sh"
