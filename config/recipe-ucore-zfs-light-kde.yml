@@ -43,22 +43,6 @@ modules:
       - sddm
       - sddm-breeze
       - sddm-kcm
-    remove:
-      - moby-engine
-      - toolbox
-      - mbuffer
-      - perl-Capture-Tiny
-      - perl-Config-IniFiles
-      - podman-compose
-      - pv
-      - qemu-guest-agent
-      - tailscale
-      - tmux
-      - open-vm-tools
-      - iwlegacy-firmware
-      - iwlwifi-dvm-firmware
-      - iwlwifi-mvm-firmware
-      - wireguard-tools
 
   - type: bling # configure what to pull in from ublue-os/bling
     install:
