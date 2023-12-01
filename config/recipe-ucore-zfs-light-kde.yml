@@ -50,7 +50,5 @@ modules:
 
   - type: systemd
     system:
-      enabled:
-        - initialize-distrobox-fedora-kde.service
       disabled:
         - rpm-ostreed-automatic.timer
