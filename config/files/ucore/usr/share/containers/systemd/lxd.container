@@ -3,6 +3,7 @@ Description=LXD In Fedora Container
 
 [Container]
 Image=ghcr.io/vietchinh/lxd-in-podman:latest
+AutoUpdate=registry
 
 Volume=/var/lib/lxd:/var/lib/lxd:z
 
