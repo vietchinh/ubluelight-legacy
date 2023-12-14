@@ -33,3 +33,5 @@ WantedBy=timers.target
 EOF
 
 rpm -ivh /tmp/ublue-os-signing.noarch.rpm
+
+systemctl mask lxd
