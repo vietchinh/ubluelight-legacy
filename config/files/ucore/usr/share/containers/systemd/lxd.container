@@ -14,6 +14,8 @@ Tmpfs=/run
 
 Network=host
 
+AddCapability=CAP_SYS_ADMIN
+
 [Service]
 Restart=always
 TimeoutStartSec=900
