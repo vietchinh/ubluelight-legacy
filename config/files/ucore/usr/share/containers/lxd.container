@@ -1,0 +1,28 @@
+[Unit]
+Description=LXD In Fedora Container
+
+[Container]
+Image=ghcr.io/vietchinh/lxd-in-podman:latest
+
+Volume=/var/lib/lxd:/var/lib/lxd:z
+
+PodmanArgs=--privileged
+PodmanArgs=--systemd=always
+PodmanArgs=--tty
+
+Tmpfs=/run
+
+Network=host
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+KillMode=mixed
+Delegate=yes
+Type=notify
+NotifyAccess=all
+SyslogIdentifier=%N
+ExecStartPre=+/bin/mkdir -p /var/lib/lxd
+
+[Install]
+WantedBy=multi-user.target default.target

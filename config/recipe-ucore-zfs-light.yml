@@ -1,7 +1,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: ucore-zfs-rpm-podman-light
 # description will be included in the image's metadata
-description: Ucore minimal with zfs
+description: Ucore minimal with zfs and optional lxd container
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/ucore
@@ -13,10 +13,8 @@ modules:
 
   - type: files
     files:
-      - usr: /usr # copy static configurations
-                  # configuration you wish to end up in /etc/ on the booted system should be 
-                  # added into /usr/etc/ as that is the proper "distro" config directory on ostree
-                  # read more in the files module's README
+      - ucore/usr: /usr
+
   - type: rpm-ostree
     remove:
     - moby-engine
