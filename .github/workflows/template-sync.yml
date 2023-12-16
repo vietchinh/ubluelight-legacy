@@ -6,7 +6,10 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions:
+      actions: write
+      contents: read
+      repository-projects: read
     steps:
       - name: Checkout template
         uses: actions/checkout@v4
