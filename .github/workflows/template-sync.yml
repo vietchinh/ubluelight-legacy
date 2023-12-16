@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Checkout template
         uses: actions/checkout@v4
-        with:
-          ref: 'template'
       - name: git setup
         run: |
           git config user.name "Vietchinh GitHub Actions Bot"
