@@ -7,12 +7,12 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      actions: write
-      contents: read
-      repository-projects: read
+      contents: write
     steps:
       - name: Checkout template
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.FORK_SYNC_TOKEN }}
       - name: git setup
         run: |
           git config user.name "Vietchinh GitHub Actions Bot"
