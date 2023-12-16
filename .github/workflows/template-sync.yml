@@ -19,7 +19,7 @@ jobs:
       - name: Fetch all
         run: git fetch --all
       - name: Checkout template
-        run: git checkout origin/template
+        run: git checkout template
       - name: Check if there is an update available
         id: check
         run: |
