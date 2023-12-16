@@ -24,10 +24,10 @@ jobs:
         id: check
         run: |
           DIFF_COUNT=`git diff --numstat --minimal template/template..template | cut -c1-1`
-          if (( DIFF_COUNT > 0 )); then
-              echo "update=true" >> $GITHUB_ENV
-          else
+          if [ -z "$DIFF_COUNT" ]; then
               echo "update=false" >> $GITHUB_ENV
+          else
+              echo "update=true" >> $GITHUB_ENV
           fi
       - name: Git merge changes from template to ubluelight/template
         if: ${{ env.update == 'true' }}
