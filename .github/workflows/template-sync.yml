@@ -6,12 +6,13 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    permissions: write-all
+    permissions:
+      contents: write
     steps:
       - name: Checkout template
         uses: actions/checkout@v4
         with:
-          ref: 'template'
+          token: ${{ secrets.FORK_SYNC_TOKEN }}
       - name: git setup
         run: |
           git config user.name "Vietchinh GitHub Actions Bot"
@@ -20,14 +21,23 @@ jobs:
         run: git remote add template https://github.com/ublue-os/startingpoint
       - name: Fetch all
         run: git fetch --all
-      - name: Check diff between template/template and template
-        run: echo "DIFF_COUNT=`git diff --numstat --minimal template/template..template | cut -c1-1`" >> $GITHUB_ENV
+      - name: Checkout template
+        run: git checkout -b template --track origin/template
+      - name: Check if there is an update available
+        id: check
+        run: |
+          DIFF_COUNT=`git diff --numstat --minimal template/template..template | cut -c1-1`
+          if [ -z "$DIFF_COUNT" ]; then
+              echo "update=false" >> $GITHUB_ENV
+          else
+              echo "update=true" >> $GITHUB_ENV
+          fi
       - name: Git merge changes from template to ubluelight/template
-        if: ${{ env.DIFF_COUNT != '' }}
+        if: ${{ env.update == 'true' }}
         run: git merge template/template --allow-unrelated-histories && git push origin template
       - name: Checkout live
-        if: ${{ env.DIFF_COUNT != '' }}
+        if: ${{ env.update == 'true' }}
         run: git checkout live
       - name: Git rebase template in live
-        if: ${{ env.DIFF_COUNT != '' }}
+        if: ${{ env.update == 'true' }}
         run: git rebase --onto origin/template --root live && git push origin live -f
