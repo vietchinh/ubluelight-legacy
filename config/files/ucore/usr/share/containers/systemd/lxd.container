@@ -18,7 +18,7 @@ Network=host
 [Service]
 Restart=on-failure
 TimeoutStartSec=900
-TimeoutStopSec=60
+TimeoutStopSec=240s
 ExecStartPre=+/bin/mkdir -p /var/lib/lxd
 
 [Install]
