@@ -16,6 +16,8 @@ modules:
       - ucore/usr: /usr
 
   - type: rpm-ostree
+    install:
+    - htop
     remove:
     - moby-engine
     - toolbox
