@@ -17,7 +17,7 @@ PodmanArgs=--privileged
 PodmanArgs=--systemd=always
 PodmanArgs=--tty
 PodmanArgs=--ipc=host
-PodmanArgs=--pull=always
+Pull=newer
 Network=host
 
 [Service]
