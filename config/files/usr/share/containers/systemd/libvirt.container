@@ -11,11 +11,9 @@ Volume=/var/lib/libvirt:/var/lib/libvirt:z
 Volume=/etc/libvirt:/etc/libvirt:z
 Volume=/var/run/libvirt:/var/run/libvirt:z
 Volume=/home:/home
-Volume=/dev:/dev
+Volume=/dev:/dev:ro
 Volume=/sys:/sys
 PodmanArgs=--privileged
-PodmanArgs=--systemd=always
-PodmanArgs=--tty
 PodmanArgs=--ipc=host
 Pull=newer
 Network=host
