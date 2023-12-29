@@ -6,7 +6,7 @@ Image=ghcr.io/vietchinh/nfs-server-in-podman:latest
 AutoUpdate=registry
 
 Volume=/etc/exports:/etc/exports:z
-Volume=/mnt:/mnt
+Volume=/var/mnt:/var/mnt
 Network=host
 AddCapability=SYS_ADMIN SYS_MODULE
 Pull=newer
