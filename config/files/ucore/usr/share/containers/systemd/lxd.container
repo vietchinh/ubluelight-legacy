@@ -8,8 +8,6 @@ AutoUpdate=registry
 Volume=/var/lib/lxd:/var/lib/lxd:z
 
 PodmanArgs=--privileged
-PodmanArgs=--systemd=always
-PodmanArgs=--tty
 
 Tmpfs=/run
 
