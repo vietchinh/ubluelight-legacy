@@ -19,6 +19,7 @@ SecurityLabelDisable=true
 Restart=on-failure
 TimeoutStartSec=900
 TimeoutStopSec=120s
+ExecStartPre=+/bin/mkdir -p /proc/fs/lockd
 ExecStartPre=+/bin/touch /etc/exports
 
 [Install]
