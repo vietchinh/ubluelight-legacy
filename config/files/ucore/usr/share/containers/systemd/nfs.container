@@ -1,5 +1,7 @@
 [Unit]
 Description=Nfs Server Container
+After=network-online.target
+Wants=network-online.target
 
 [Container]
 Image=ghcr.io/vietchinh/nfs-server-in-podman:latest
