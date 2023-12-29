@@ -5,7 +5,7 @@ Description=Nfs Server Container
 Image=ghcr.io/vietchinh/nfs-server-in-podman:latest
 AutoUpdate=registry
 
-Volume=%h/.config/nfs-exports:/etc/exports:z
+Volume=/etc/exports:/etc/exports:z
 Volume=/mnt:/mnt
 Network=host
 AddCapability=SYS_ADMIN SYS_MODULE
@@ -16,7 +16,7 @@ SecurityLabelDisable=true
 Restart=on-failure
 TimeoutStartSec=900
 TimeoutStopSec=120s
-ExecStartPre=+/bin/touch %h/.config/nfs-exports
+ExecStartPre=+/bin/touch /etc/exports
 
 [Install]
 # Start by default on boot
