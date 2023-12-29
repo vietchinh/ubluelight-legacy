@@ -1,0 +1,23 @@
+[Unit]
+Description=Nfs Server Container
+
+[Container]
+Image=ghcr.io/vietchinh/nfs-server-in-podman:latest
+AutoUpdate=registry
+
+Volume=%h/.config/nfs-exports:/etc/exports:z
+Volume=/mnt:/mnt
+Network=host
+AddCapability=SYS_ADMIN SYS_MODULE
+Pull=newer
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+TimeoutStopSec=120s
+ExecStartPre=+/bin/touch %h/.config/nfs-exports
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target
