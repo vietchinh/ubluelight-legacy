@@ -9,5 +9,5 @@ set -oue pipefail
 
 systemctl mask libvirt
 
-echo "compression-algorithm = lz4" > /usr/lib/systemd/zram-generator.conf
-echo "vm.swappiness = 150" > /usr/etc/sysctl.conf
+echo "compression-algorithm = lz4" >> /usr/lib/systemd/zram-generator.conf
+echo "vm.swappiness = 150" >> /usr/etc/sysctl.conf
