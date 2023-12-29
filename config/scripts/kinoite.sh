@@ -8,3 +8,6 @@ set -oue pipefail
 # Your code goes here.
 
 systemctl mask libvirt
+
+echo "compression-algorithm = lz4" > /usr/lib/systemd/zram-generator.conf
+echo "vm.swappiness = 150" > /usr/etc/sysctl.conf
