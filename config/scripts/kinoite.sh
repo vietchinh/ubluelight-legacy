@@ -10,4 +10,3 @@ set -oue pipefail
 systemctl mask libvirt
 
 echo "compression-algorithm = zstd" >> /usr/lib/systemd/zram-generator.conf
-echo "vm.swappiness = 150" >> /usr/etc/sysctl.conf
