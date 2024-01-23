@@ -35,8 +35,6 @@ modules:
     - iwlwifi-dvm-firmware
     - iwlwifi-mvm-firmware
     - wireguard-tools
-    - xdg-dbus-proxy
-    - xdg-user-dirs
 
   - type: script
     scripts:
