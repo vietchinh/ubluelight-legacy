@@ -30,7 +30,6 @@ modules:
     - qemu-guest-agent
     - tailscale
     - tmux
-    - dbus-tools
     - open-vm-tools
     - iwlegacy-firmware
     - iwlwifi-dvm-firmware
