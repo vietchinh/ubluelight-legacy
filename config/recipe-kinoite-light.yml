@@ -83,18 +83,11 @@ modules:
         - org.kde.okular
         - org.kde.filelight
 
-  - type: bling # configure what to pull in from ublue-os/bling
-    install:
-      - ublue-update
-
   - type: systemd
     user:
       enabled:
         - podman.service
         - podman-auto-update.timer
-    system:
-      enabled:
-        - ublue-update.timer
 
   - type: script
     scripts:
