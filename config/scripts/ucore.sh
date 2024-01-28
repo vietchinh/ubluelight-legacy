@@ -34,7 +34,4 @@ EOF
 
 rpm -ivh /tmp/ublue-os-signing.noarch.rpm
 
-systemctl mask lxd
-systemctl mask nfs
-
 echo "compression-algorithm = zstd" >> /usr/lib/systemd/zram-generator.conf
