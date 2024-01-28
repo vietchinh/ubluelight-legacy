@@ -48,3 +48,6 @@ modules:
         - rpm-ostreed-upgrade-reboot.timer
       disabled:
         - rpm-ostreed-automatic.timer
+      masked:
+        - lxd.service
+        - nfs.service
