@@ -88,6 +88,9 @@ modules:
       enabled:
         - podman.service
         - podman-auto-update.timer
+    system:
+      masked:
+        - libvirt.service
 
   - type: script
     scripts:
