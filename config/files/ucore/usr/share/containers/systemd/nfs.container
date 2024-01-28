@@ -1,0 +1,28 @@
+[Unit]
+Description=Nfs Server Container
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+Image=ghcr.io/vietchinh/nfs-server-in-podman:latest
+AutoUpdate=registry
+
+Volume=/etc/exports:/etc/exports:z
+Volume=/var/mnt:/var/mnt
+Volume=/proc/fs/lockd:/proc/fs/lockd
+Network=host
+AddCapability=SYS_ADMIN SYS_MODULE
+Pull=newer
+SecurityLabelDisable=true
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+TimeoutStopSec=120s
+ExecStartPre=+/sbin/modprobe lockd
+ExecStartPre=+/bin/touch /etc/exports
+ExecStopPost=+/sbin/rmmod lockd
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target
