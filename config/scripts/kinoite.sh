@@ -6,7 +6,4 @@
 set -oue pipefail
 
 # Your code goes here.
-
-systemctl mask libvirt
-
 echo "compression-algorithm = zstd" >> /usr/lib/systemd/zram-generator.conf
