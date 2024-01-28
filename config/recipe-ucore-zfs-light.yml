@@ -1,0 +1,50 @@
+# image will be published to ghcr.io/<user>/<name>
+name: ucore-zfs-rpm-podman-light
+# description will be included in the image's metadata
+description: Ucore minimal with zfs and optional lxd container
+
+# the base image to build on top of (FROM) and the version tag to use
+base-image: ghcr.io/ublue-os/ucore
+image-version: stable-zfs # latest is also supported if you want new updates ASAP
+
+# list of modules, executed in order
+# you can include multiple instances of the same module
+modules:
+
+  - type: files
+    files:
+      - ucore/usr: /usr
+
+  - type: rpm-ostree
+    install:
+    - htop
+    remove:
+    - moby-engine
+    - toolbox
+    - distrobox
+    - mbuffer
+    - perl-Capture-Tiny
+    - perl-Config-IniFiles
+    - podman-compose
+    - pv
+    - qemu-guest-agent
+    - tailscale
+    - tmux
+    - open-vm-tools
+    - iwlegacy-firmware
+    - iwlwifi-dvm-firmware
+    - iwlwifi-mvm-firmware
+    - wireguard-tools
+
+  - type: script
+    scripts:
+      - ucore.sh
+      # this sets up the proper policy & signing files for signed images to work
+      - signing.sh
+
+  - type: systemd
+    system:
+      enabled:
+        - rpm-ostreed-upgrade-reboot.timer
+      disabled:
+        - rpm-ostreed-automatic.timer
