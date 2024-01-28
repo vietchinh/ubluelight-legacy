@@ -1,0 +1,31 @@
+[Unit]
+Description=Libvirt Qemu KVM Container
+After=network-online.target
+Wants=network-online.target
+
+[Container]
+Image=ghcr.io/vietchinh/libvirtd-in-podman:latest
+AutoUpdate=registry
+
+Volume=/var/lib/libvirt:/var/lib/libvirt:z
+Volume=/etc/libvirt:/etc/libvirt:z
+Volume=/var/run/libvirt:/var/run/libvirt:z
+Volume=/home:/home
+Volume=/dev:/dev:ro
+Volume=/sys:/sys
+PodmanArgs=--privileged
+PodmanArgs=--ipc=host
+Pull=newer
+Network=host
+
+[Service]
+Restart=on-failure
+TimeoutStartSec=900
+TimeoutStopSec=120s
+ExecStartPre=+/bin/mkdir -p /var/run/libvirt
+ExecStartPre=+/bin/mkdir -p /var/lib/libvirt
+ExecStartPre=+/bin/mkdir -p /etc/libvirt
+
+[Install]
+# Start by default on boot
+WantedBy=multi-user.target default.target
