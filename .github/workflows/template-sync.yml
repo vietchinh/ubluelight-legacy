@@ -35,14 +35,12 @@ jobs:
       - name: Git merge changes from template to ubluelight/template
         if: ${{ env.update == 'true' }}
         run: git merge template/template --allow-unrelated-histories && git push origin template
-      - name: Checkout template
+      - name: Checkout live
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.FORK_SYNC_TOKEN }}
           ref: live
       - name: Fetch all
         run: git fetch --all
-      - name: Checkout live
-        run: git checkout -b live --track origin/live
       - name: Git rebase template in live
         run: git rebase --onto origin/template --root live && git push origin live -f
