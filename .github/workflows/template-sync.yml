@@ -43,4 +43,4 @@ jobs:
       - name: Fetch all
         run: git fetch --all
       - name: Git rebase template in live
-        run: git rebase --onto origin/template --root live && git push origin live -f
+        run: git rebase --onto origin/template --root live --reapply-cherry-picks && git push origin live -f
