@@ -33,10 +33,10 @@ jobs:
           else
               echo "update=true" >> $GITHUB_ENV
           fi
-#      - name: Git merge changes from template to ubluelight/template
-#        if: ${{ env.update == 'true' }}
-#        run: git merge template/template --allow-unrelated-histories && git push origin template
+      - name: Git merge changes from template to ubluelight/template
+        if: ${{ env.update == 'true' }}
+        run: git merge template/template --allow-unrelated-histories
       - name: Checkout template
         run: git checkout live
       - name: Git rebase template in live
-        run: git rebase --onto origin/template --root live --reapply-cherry-picks
+        run: git rebase --onto origin/template --root live --reapply-cherry-picks && git push origin live -f
