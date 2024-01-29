@@ -35,8 +35,10 @@ jobs:
           fi
       - name: Git merge changes from template to ubluelight/template
         if: ${{ env.update == 'true' }}
-        run: git merge template/template --allow-unrelated-histories
-      - name: Checkout template
+        run: git merge template/template --allow-unrelated-histories && git push origin template
+      - name: Checkout live
+        if: ${{ env.update == 'true' }}
         run: git checkout live
       - name: Git rebase template in live
+        if: ${{ env.update == 'true' }}
         run: git rebase --onto origin/template --root live --reapply-cherry-picks && git push origin live -f
