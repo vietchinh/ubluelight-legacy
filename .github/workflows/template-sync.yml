@@ -13,6 +13,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.FORK_SYNC_TOKEN }}
+          fetch-depth: 0
       - name: git setup
         run: |
           git config user.name "Vietchinh GitHub Actions Bot"
@@ -32,15 +33,10 @@ jobs:
           else
               echo "update=true" >> $GITHUB_ENV
           fi
-      - name: Git merge changes from template to ubluelight/template
-        if: ${{ env.update == 'true' }}
-        run: git merge template/template --allow-unrelated-histories && git push origin template
-      - name: Checkout live
-        uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.FORK_SYNC_TOKEN }}
-          ref: live
-      - name: Fetch all
-        run: git fetch --all
+#      - name: Git merge changes from template to ubluelight/template
+#        if: ${{ env.update == 'true' }}
+#        run: git merge template/template --allow-unrelated-histories && git push origin template
+      - name: Checkout template
+        run: git checkout live
       - name: Git rebase template in live
-        run: git rebase --onto origin/template --root live --reapply-cherry-picks && git push origin live -f
+        run: git rebase --onto origin/template --root live --reapply-cherry-picks
