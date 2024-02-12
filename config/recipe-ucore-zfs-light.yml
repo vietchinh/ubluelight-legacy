@@ -1,10 +1,10 @@
 # image will be published to ghcr.io/<user>/<name>
 name: ucore-zfs-rpm-podman-light
 # description will be included in the image's metadata
-description: Ucore minimal with zfs and optional lxd container
+description: Ucore minimal with zfs and optional lxd and nfs container
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/ucore
+base-image: ghcr.io/ublue-os/ucore-minimal
 image-version: stable-zfs # latest is also supported if you want new updates ASAP
 
 # list of modules, executed in order
@@ -18,10 +18,13 @@ modules:
   - type: rpm-ostree
     install:
     - htop
+    - cockpit-storaged
+    - duperemove
+    - xdg-dbus-proxy
+    - xdg-user-dirs
     remove:
     - moby-engine
     - toolbox
-    - distrobox
     - mbuffer
     - perl-Capture-Tiny
     - perl-Config-IniFiles
@@ -31,9 +34,6 @@ modules:
     - tailscale
     - tmux
     - open-vm-tools
-    - iwlegacy-firmware
-    - iwlwifi-dvm-firmware
-    - iwlwifi-mvm-firmware
     - wireguard-tools
 
   - type: script
