@@ -32,6 +32,4 @@ Persistent=true
 WantedBy=timers.target
 EOF
 
-rpm -ivh /tmp/ublue-os-signing.noarch.rpm
-
 echo "compression-algorithm = zstd" >> /usr/lib/systemd/zram-generator.conf
